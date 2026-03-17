@@ -4,69 +4,143 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
-<nav>
-<a href="/billy-blog/" class="logo">
-<img src="/billy-blog/favicon.svg" width="28" height="28" alt="Billy goat logo" />
-{SITE_TITLE}
-</a>
-<div class="links">
-<HeaderLink href="/billy-blog/blog">Posts</HeaderLink>
-<a href="https://jd4rider.github.io/billy-web" target="_blank" rel="noreferrer">billy.sh</a>
-<a href="https://jd4rider.github.io/billy-starlight" target="_blank" rel="noreferrer">Docs</a>
-<a href="https://github.com/jd4rider/billy-app" target="_blank" rel="noreferrer" class="gh-link">
-<svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
-<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-</svg>
-GitHub
-</a>
-</div>
-</nav>
+  <nav>
+    <a href="/billy-blog/" class="logo">
+      <img src="/billy-blog/favicon.svg" width="28" height="28" alt="Billy goat logo" />
+      <span class="logo-text">{SITE_TITLE}</span>
+    </a>
+
+    <button class="hamburger" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="links" id="nav-links">
+      <HeaderLink href="/billy-blog/blog">Posts</HeaderLink>
+      <a href="https://jd4rider.github.io/billy-web" target="_blank" rel="noreferrer">billy.sh</a>
+      <a href="https://jd4rider.github.io/billy-starlight" target="_blank" rel="noreferrer">Docs</a>
+      <a href="https://github.com/jd4rider/billy-app" target="_blank" rel="noreferrer" class="gh-link" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  toggle?.addEventListener('click', () => {
+    const open = links?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  // Close menu when a link is clicked
+  links?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 <style>
 header {
-border-bottom: 1px solid var(--border);
-background: rgba(13, 17, 23, 0.92);
-backdrop-filter: blur(8px);
-position: sticky;
-top: 0;
-z-index: 100;
+  border-bottom: 1px solid var(--border);
+  background: rgba(13, 17, 23, 0.95);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 nav {
-max-width: 900px;
-margin: 0 auto;
-padding: 0 1.5rem;
-height: 56px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  position: relative;
 }
 .logo {
-display: flex;
-align-items: center;
-gap: 8px;
-font-weight: 700;
-font-size: 1rem;
-color: var(--text);
-text-decoration: none;
-white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .logo:hover { text-decoration: none; opacity: 0.85; }
+
+/* ── Desktop links ── */
 .links {
-display: flex;
-align-items: center;
-gap: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 .links a {
-color: var(--muted);
-font-size: 0.9rem;
-text-decoration: none;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
 .links a:hover { color: var(--text); text-decoration: none; }
-.gh-link {
-display: flex;
-align-items: center;
-gap: 5px;
+.gh-link { display: flex; align-items: center; gap: 5px; }
+
+/* ── Hamburger button (hidden on desktop) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .hamburger { display: flex; }
+
+  .links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(13, 17, 23, 0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0;
+  }
+  .links.open { display: flex; }
+  .links a {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .links a:last-child { border-bottom: none; }
+  .gh-link { gap: 8px; }
 }
 </style>

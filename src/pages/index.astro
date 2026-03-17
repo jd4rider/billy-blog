@@ -44,38 +44,43 @@ const posts = (await getCollection('blog')).sort(
 </html>
 
 <style>
-.hero { margin-bottom: 3rem; }
+.hero { margin-bottom: 2.5rem; }
 .label {
-font-size: 0.75rem;
-font-weight: 700;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: var(--accent);
-margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
 }
-h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+h1 { font-size: clamp(1.6rem, 5vw, 2rem); margin-bottom: 0.5rem; }
 .sub { color: var(--muted); margin: 0; font-size: 1rem; }
 
 .post-list {
-list-style: none;
-padding: 0;
-margin: 0;
-display: flex;
-flex-direction: column;
-gap: 1px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 .post-list li a {
-display: block;
-padding: 1.75rem 0;
-border-top: 1px solid var(--border);
-text-decoration: none;
-color: var(--text);
-transition: color 0.15s;
+  display: block;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.15s;
 }
 .post-list li:last-child a { border-bottom: 1px solid var(--border); }
 .post-list li a:hover h2 { color: var(--accent); }
 .post-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
-.post-list h2 { font-size: 1.2rem; margin: 0 0 0.5rem; transition: color 0.15s; }
+.post-list h2 { font-size: clamp(1rem, 3vw, 1.2rem); margin: 0 0 0.5rem; transition: color 0.15s; }
 .post-list p { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.75rem; }
 .read-more { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .hero { margin-bottom: 1.75rem; }
+  .post-list li a { padding: 1.25rem 0; }
+}
 </style>
