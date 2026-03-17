@@ -105,7 +105,7 @@ scoop install billy
 Then make sure Ollama is running with a model pulled:
 
 ```bash
-ollama pull qwen2.5-coder:7b
+ollama pull qwen2.5-coder:14b
 billy
 ```
 

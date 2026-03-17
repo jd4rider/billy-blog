@@ -1,11 +1,11 @@
 ---
 title: "Is Local AI Good Enough for Real Dev Work?"
-description: "I've been coding with qwen2.5-coder:7b locally for months. Here's my honest take on where local models shine — and where they still fall short compared to GPT-4 and Claude."
+description: "I've been coding with qwen2.5-coder:14b locally for months. Here's my honest take on where local models shine — and where they still fall short compared to GPT-4 and Claude."
 pubDate: 'Mar 17 2026'
 tags: ['opinion', 'ollama', 'local-ai']
 ---
 
-I've been using local AI as my primary coding assistant for several months. No Copilot subscription, no Cursor, no API keys. Just [Ollama](https://ollama.ai) running on my machine with `qwen2.5-coder:7b` as the default model.
+I've been using local AI as my primary coding assistant for several months. No Copilot subscription, no Cursor, no API keys. Just [Ollama](https://ollama.ai) running on my machine with `qwen2.5-coder:14b` as the default model.
 
 The honest answer to "is it good enough?" is: it depends on what you're doing. But it's closer than most people think — and getting better every few months.
 
@@ -59,7 +59,7 @@ For a back-and-forth debug session where you're iterating on a complex problem a
 
 Forget academic benchmarks. Here's the real test: **can it unblock you faster than a Google search?**
 
-For most day-to-day coding tasks — the kind that make up the bulk of a working developer's day — `qwen2.5-coder:7b` passes that bar. It's not magic. It makes mistakes. But so does Stack Overflow, and Stack Overflow doesn't answer follow-up questions.
+For most day-to-day coding tasks — the kind that make up the bulk of a working developer's day — `qwen2.5-coder:14b` passes that bar. It's not magic. It makes mistakes. But so does Stack Overflow, and Stack Overflow doesn't answer follow-up questions.
 
 The specific tasks where I reach for a cloud model now are narrower than I expected: complex architectural decisions, understanding unfamiliar large codebases, and anything involving reasoning across many files simultaneously.
 
@@ -79,7 +79,7 @@ For the 20% where you genuinely need cloud quality, you can still use a free Cla
 
 ## What's coming
 
-The gap is closing fast. `qwen2.5-coder:7b` running today is dramatically better than what was available 18 months ago. The models being trained now will run on consumer hardware in 12–18 months.
+The gap is closing fast. `qwen2.5-coder:14b` running today is dramatically better than what was available 18 months ago. The models being trained now will run on consumer hardware in 12–18 months.
 
 The trajectory strongly suggests that local models will handle the majority of real dev work within two years — not as a budget compromise, but as a genuinely preferred option for latency, privacy, and cost.
 
