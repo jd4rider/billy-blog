@@ -29,10 +29,11 @@ body {
 }
 
 main {
-  width: 720px;
-  max-width: 100%;
-  margin: auto;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
   padding: 2.5rem 1.75rem;
+  box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6 {
