@@ -8,43 +8,103 @@ import Header from '../components/Header.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": pubDate.toISOString(),
+  ...(updatedDate ? { "dateModified": updatedDate.toISOString() } : {}),
+  "url": canonicalURL.toString(),
+  "author": {
+    "@type": "Person",
+    "name": "Jonathan Forrider",
+    "url": "https://github.com/jd4rider"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Jonathan Forrider",
+    "url": "https://github.com/jd4rider"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Billy.sh Blog",
+    "url": "https://jd4rider.github.io/billy-blog/"
+  }
+};
 ---
 
 <html lang="en">
-<head>
-<BaseHead title={title} description={description} />
-</head>
-<body>
-<Header />
-<main>
-<article>
-<div class="title">
-<div class="meta">
-<FormattedDate date={pubDate} />
-{updatedDate && (
-<span> · Updated <FormattedDate date={updatedDate} /></span>
-)}
-</div>
-<h1>{title}</h1>
-<p class="description">{description}</p>
-<hr />
-</div>
-<div class="prose">
-<slot />
-</div>
-</article>
-</main>
-<Footer />
-</body>
+  <head>
+    <BaseHead title={title} description={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    <!-- Override OG type to article for blog posts -->
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={pubDate.toISOString()} />
+    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+    <meta property="article:author" content="Jonathan Forrider" />
+    <meta property="article:tag" content="Billy.sh" />
+    <meta property="article:tag" content="local AI" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <div class="title">
+          <div class="meta">
+            <FormattedDate date={pubDate} />
+            {updatedDate && (
+              <span> · Updated <FormattedDate date={updatedDate} /></span>
+            )}
+          </div>
+          <h1>{title}</h1>
+          <p class="description">{description}</p>
+          <hr />
+        </div>
+        <div class="prose">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
 main { max-width: 720px; }
 .title { margin-bottom: 2rem; }
 .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
-h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 0.5rem; }
+h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 0.5rem; line-height: 1.25; }
 .description { color: var(--muted); font-size: 1rem; margin: 0; }
 hr { margin: 1.5rem 0; border-color: var(--border); }
-.prose :global(h2) { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.75rem; }
-.prose :global(h3) { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+.prose :global(h2) {
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose :global(h3) {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose :global(pre) {
+  margin: 1.25em 0;
+}
+
+@media (max-width: 640px) {
+  .title { margin-bottom: 1.5rem; }
+  hr { margin: 1.25rem 0; }
+  .prose :global(h2) { margin-top: 1.5rem; }
+  /* Keep code blocks from pushing page width on mobile */
+  .prose :global(pre) {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
 </style>
