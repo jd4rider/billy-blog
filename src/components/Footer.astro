@@ -3,7 +3,8 @@ const today = new Date();
 ---
 <footer>
 <div class="inner">
-<span>&copy; {today.getFullYear()} Billy.sh — <a href="https://jd4rider.github.io/billy-web">billy.sh</a> · <a href="https://github.com/jd4rider/billy-app">GitHub</a> · <a href="https://jd4rider.github.io/billy-starlight">Docs</a></span>
+  <span>&copy; {today.getFullYear()} Billy.sh — <a href="https://jd4rider.github.io/billy-web">billy.sh</a> · <a href="https://github.com/jd4rider/billy-app">GitHub</a> · <a href="https://jd4rider.github.io/billy-starlight">Docs</a></span>
+  <span class="support">If Billy helps your workflow → <a href="https://buymeacoffee.com/jd4rider" target="_blank" rel="noreferrer">☕ Buy me a coffee</a> · <a href="https://github.com/sponsors/jd4rider" target="_blank" rel="noreferrer">❤️ GitHub Sponsors</a></span>
 </div>
 </footer>
 <style>
@@ -17,7 +18,12 @@ font-size: 0.85rem;
 max-width: 900px;
 margin: 0 auto;
 text-align: center;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
 }
 a { color: var(--muted); }
 a:hover { color: var(--text); text-decoration: none; }
+.support { font-size: 0.8rem; opacity: 0.7; }
+.support a { opacity: 1; }
 </style>
