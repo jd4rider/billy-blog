@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).sort(
+(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+<body>
+<Header />
+<main>
+<section class="hero">
+<p class="label">Blog</p>
+<h1>From the author</h1>
+<p class="sub">Development insights, tutorials, and the story of building Billy.sh.</p>
+</section>
+<ul class="post-list">
+{posts.map(post => (
+<li>
+<a href={`/billy-blog/blog/${post.id}/`}>
+<div class="post-meta">
+<FormattedDate date={post.data.pubDate} />
+</div>
+<h2>{post.data.title}</h2>
+<p>{post.data.description}</p>
+<span class="read-more">Read post →</span>
+</a>
+</li>
+))}
+</ul>
+</main>
+<Footer />
+</body>
+</html>
+
+<style>
+.hero { margin-bottom: 3rem; }
+.label {
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--accent);
+margin: 0 0 0.5rem;
+}
+h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.sub { color: var(--muted); margin: 0; font-size: 1rem; }
+
+.post-list {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: column;
+gap: 1px;
+}
+.post-list li a {
+display: block;
+padding: 1.75rem 0;
+border-top: 1px solid var(--border);
+text-decoration: none;
+color: var(--text);
+transition: color 0.15s;
+}
+.post-list li:last-child a { border-bottom: 1px solid var(--border); }
+.post-list li a:hover h2 { color: var(--accent); }
+.post-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
+.post-list h2 { font-size: 1.2rem; margin: 0 0 0.5rem; transition: color 0.15s; }
+.post-list p { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.75rem; }
+.read-more { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+</style>

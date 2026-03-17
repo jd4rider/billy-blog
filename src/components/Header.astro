@@ -1,0 +1,75 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+<nav>
+<a href="/billy-blog/" class="logo">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+<circle cx="12" cy="12" r="11" stroke="#38bdf8" stroke-width="1.5"/>
+<text x="12" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#38bdf8">B</text>
+</svg>
+{SITE_TITLE}
+</a>
+<div class="links">
+<HeaderLink href="/billy-blog/blog">Posts</HeaderLink>
+<a href="https://jd4rider.github.io/billy-web" target="_blank" rel="noreferrer">billy.sh</a>
+<a href="https://jd4rider.github.io/billy-starlight" target="_blank" rel="noreferrer">Docs</a>
+<a href="https://github.com/jd4rider/billy-app" target="_blank" rel="noreferrer" class="gh-link">
+<svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
+<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+</svg>
+GitHub
+</a>
+</div>
+</nav>
+</header>
+
+<style>
+header {
+border-bottom: 1px solid var(--border);
+background: rgba(13, 17, 23, 0.92);
+backdrop-filter: blur(8px);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+nav {
+max-width: 900px;
+margin: 0 auto;
+padding: 0 1.5rem;
+height: 56px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1rem;
+}
+.logo {
+display: flex;
+align-items: center;
+gap: 8px;
+font-weight: 700;
+font-size: 1rem;
+color: var(--text);
+text-decoration: none;
+white-space: nowrap;
+}
+.logo:hover { text-decoration: none; opacity: 0.85; }
+.links {
+display: flex;
+align-items: center;
+gap: 1.25rem;
+}
+.links a {
+color: var(--muted);
+font-size: 0.9rem;
+text-decoration: none;
+}
+.links a:hover { color: var(--text); text-decoration: none; }
+.gh-link {
+display: flex;
+align-items: center;
+gap: 5px;
+}
+</style>
