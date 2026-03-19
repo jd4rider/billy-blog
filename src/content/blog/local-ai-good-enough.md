@@ -1,11 +1,11 @@
 ---
 title: "Is Local AI Good Enough for Real Dev Work?"
-description: "I've been coding with qwen2.5-coder:14b locally for months. Here's my honest take on where local models shine — and where they still fall short compared to GPT-4 and Claude."
+description: "I've been coding with qwen2.5-coder:14b locally for a while now. Here's my honest take on where local models shine — and where they still fall short compared to GPT-4 and Claude."
 pubDate: 'Mar 17 2026'
 tags: ['opinion', 'ollama', 'local-ai']
 ---
 
-I've been using local AI as my primary coding assistant for several months. No Copilot subscription, no Cursor, no API keys. Just [Ollama](https://ollama.ai) running on my machine with `qwen2.5-coder:14b` as the default model.
+I've been using local AI as my primary coding assistant for a while now. No Copilot subscription, no Cursor, no API keys. Just [Ollama](https://ollama.ai) running on my machine with `qwen2.5-coder:14b` as the default model.
 
 The honest answer to "is it good enough?" is: it depends on what you're doing. But it's closer than most people think — and getting better every few months.
 
