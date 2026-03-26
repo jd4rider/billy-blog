@@ -1,5 +1,5 @@
 ---
-title: 'Introducing Billy.sh — Why I Built a Local AI Coding Assistant'
+title: 'Introducing Billy — Why I Built a Local AI Coding Assistant'
 description: 'GitHub Copilot costs $10/month. Cursor is $20/month. I wanted a fast, private AI pair programmer that runs entirely on my machine — so I built one in Go.'
 pubDate: 'Mar 17 2026'
 ---
@@ -67,7 +67,7 @@ You can approve once, approve all commands of that type for the session, or skip
 
 ## What's Working Today
 
-Billy is pre-alpha, but it's genuinely useful already:
+Billy is still early, but it's genuinely useful already:
 
 - Full TUI chat with conversation history and an interactive session picker
 - One-shot mode for piping input from the terminal

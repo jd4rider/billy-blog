@@ -5,7 +5,7 @@ pubDate: 'Mar 17 2026'
 tags: ['opinion', 'ollama', 'local-ai']
 ---
 
-I've been using local AI as my primary coding assistant for a while now. No Copilot subscription, no Cursor, no API keys. Just [Ollama](https://ollama.ai) running on my machine with `qwen2.5-coder:14b` as the default model.
+I've been using local AI as my primary coding assistant for a while now. No Copilot subscription, no Cursor, no API keys. Just [Ollama](https://ollama.com) running on my machine with `qwen2.5-coder:14b` as the default model.
 
 The honest answer to "is it good enough?" is: it depends on what you're doing. But it's closer than most people think — and getting better every few months.
 

@@ -43,17 +43,18 @@ const ogImage = image
 <title>{pageTitle}</title>
 <meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
-<meta name="keywords" content="Billy.sh, local AI coding assistant, Ollama, GitHub Copilot alternative, developer tools, CLI, no subscription, offline AI" />
+<meta name="keywords" content="Billy, local AI coding assistant, offline AI coding assistant, terminal AI coding assistant, Ollama, GitHub Copilot alternative, developer tools, CLI" />
 <meta name="author" content="Jonathan Forrider" />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
-<meta property="og:site_name" content="Billy.sh Blog" />
+<meta property="og:site_name" content="Billy Blog" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={pageTitle} />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -61,6 +62,7 @@ const ogImage = image
 <meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={pageTitle} />
 
 <!-- Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify({
