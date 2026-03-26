@@ -109,6 +109,6 @@ ollama pull qwen2.5-coder:14b
 billy
 ```
 
-The full documentation is at [jd4rider.github.io/billy-starlight](https://jd4rider.github.io/billy-starlight). The source is at [github.com/jd4rider/billy-app](https://github.com/jd4rider/billy-app) — issues and PRs are very welcome.
+The full documentation is at [docs.billysh.online](https://docs.billysh.online). The source is at [github.com/jd4rider/billy-app](https://github.com/jd4rider/billy-app) — issues and PRs are very welcome.
 
 If this resonates with you, star the repo and follow along. We're just getting started.

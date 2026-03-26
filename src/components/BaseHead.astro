@@ -16,7 +16,7 @@ const { title, description, image } = Astro.props;
 const pageTitle = title === SITE_TITLE ? title : `${title} — ${SITE_TITLE}`;
 const ogImage = image
 ? (typeof image === 'string' ? image : new URL(image.src, Astro.url))
-: `${Astro.site}billy-blog/logo512.png`;
+: new URL('logo512.png', Astro.site).toString();
 ---
 
 <!-- Global Metadata -->
@@ -28,7 +28,7 @@ const ogImage = image
 <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
 <link rel="icon" href={`${base}/favicon.ico`} />
 <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
-<link rel="sitemap" href={`${base}/sitemap-index.xml`} />
+<link rel="sitemap" href={new URL('sitemap-index.xml', Astro.site)} />
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)} />
 <meta name="generator" content={Astro.generator} />
 

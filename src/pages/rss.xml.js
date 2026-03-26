@@ -10,7 +10,7 @@ description: SITE_DESCRIPTION,
 site: context.site,
 items: posts.map((post) => ({
 ...post.data,
-link: `/billy-blog/blog/${post.id}/`,
+	link: `/blog/${post.id}/`,
 })),
 });
 }

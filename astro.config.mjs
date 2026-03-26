@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-	site: 'https://jd4rider.github.io',
-	base: '/billy-blog',
+	site: 'https://blog.billysh.online',
 	integrations: [mdx(), sitemap()],
 });
