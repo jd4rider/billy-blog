@@ -77,7 +77,7 @@ Billy is still early, but it's genuinely useful already:
 - Context compaction (`/compact`) for long sessions
 - Named session checkpoints (`/session`)
 - Filesystem tools: `/pwd`, `/cd` with live directory picker, `/ls`, `/git`
-- License system (Free / Pro / Premium / Team) — because I'd like to keep building this
+- Support-first monetization — setup help, sponsorship, and future convenience bundles instead of crippling the core app
 
 ## What's Coming
 

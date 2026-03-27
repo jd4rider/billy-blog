@@ -69,7 +69,7 @@ The specific tasks where I reach for a cloud model now are narrower than I expec
 
 **Cloud AI (Copilot + Cursor):** ~$30/month = $360/year, ongoing.
 
-**Local AI (Billy, one-time):** $19 Pro tier. Plus the cost of the hardware you already own.
+**Local AI (Billy, open-core):** $0 for the app itself, plus the cost of the hardware you already own.
 
 If local models handle 80% of your use cases (conservative), you're getting 80% of the value for ~5% of the annual cost after year one.
 
@@ -89,4 +89,4 @@ We're building Billy on that bet. If you want to try it:
 curl -fsSL https://raw.githubusercontent.com/jd4rider/billy-app/main/scripts/install.sh | bash
 ```
 
-Free tier, no account required. Ollama handles the model download automatically on first run.
+Open-core, no account required. Ollama handles the model download automatically on first run.

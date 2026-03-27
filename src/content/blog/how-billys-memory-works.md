@@ -111,15 +111,13 @@ Memory forgotten.
 
 ---
 
-## Free Tier vs. Pro
+## Open-Core Memory
 
-There's one important caveat: **memory persistence is a Pro feature.**
+Billy now ships with memory persistence in the open-core build.
 
-On the free tier, Billy can still detect and acknowledge memory-save phrases in a session — but memories aren't persisted to disk. The next time you start Billy, the slate is clean again.
+That means memories persist across sessions indefinitely, stay local on your machine, and never require a cloud account or paid unlock.
 
-On Pro ($19, one-time), memories persist across every session indefinitely. They're stored locally, never synced anywhere, and they're yours to manage or delete at any time.
-
-This is one of the first things Pro users notice — the feeling of working with an assistant that actually knows you. Not because of a cloud profile or account. Just a small SQLite table on your machine and a system prompt.
+This is one of the first things users notice — the feeling of working with an assistant that actually knows you. Not because of a cloud profile or account. Just a small SQLite table on your machine and a system prompt.
 
 ---
 
