@@ -91,13 +91,17 @@ The roadmap has a few things I'm excited about:
 ## Try It
 
 ```bash
-# macOS
-brew install jd4rider/billy/billy
+# macOS / Linux desktop
+curl -fsSL https://raw.githubusercontent.com/jd4rider/billy-wails/main/scripts/install.sh | bash
+
+# macOS CLI
+brew tap jd4rider/billy
+brew install billy
 
 # Linux / macOS (install script)
 curl -fsSL https://raw.githubusercontent.com/jd4rider/billy-app/main/scripts/install.sh | bash
 
-# Windows
+# Windows CLI
 scoop bucket add billy https://github.com/jd4rider/scoop-billy
 scoop install billy
 ```
